@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     copyBtn.addEventListener('click', function(){
         const text = document.getElementById('date-value1').textContent
         if(text && text !== 'not set'){
-            navigator.clipboard.writeText()
+            navigator.clipboard.writeText(text)
             .then(()=>{
                 copyBtn.textContent='copied!';
                 setTimeout(()=>{
