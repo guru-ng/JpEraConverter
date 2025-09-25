@@ -38,9 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
         if(text && text !== 'not set'){
             navigator.clipboard.writeText(text)
             .then(()=>{
-                copyBtn.textContent='copied!';
+                copyBtn.textContent='Copied!';
+                copyBtn.classList.add('copied');
                 setTimeout(()=>{
                     copyBtn.textContent='Copy';
+                    copyBtn.classList.remove('copied');
                 }, 1500);
             })
             .catch(err =>{
