@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     })
 
-
+    //functions
     function convertToJapaneseDate (value){
         const newDate = new Date(value)
     
@@ -31,4 +31,21 @@ document.addEventListener("DOMContentLoaded", function() {
      return formattedValue
     
     }
+    //copy Btn
+    const copyBtn = document.getElementById('copy-button');
+    copyBtn.addEventListener('click', function(){
+        const text = document.getElementById('date-value').textContent
+        if(text && text !== 'not set'){
+            navigator.clipboard.writeText()
+            .then(()=>{
+                copyBtn.textContent='copied!';
+                setTimeout(()=>{
+                    copyBtn.textContent='Copy';
+                }, 1500);
+            })
+            .catch(err =>{
+                console.log('Failed to copy', err)
+            })
+        }
+    })
 })

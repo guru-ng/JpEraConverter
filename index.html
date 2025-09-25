@@ -13,7 +13,8 @@
          <label for="birth-date">Select Date:</label>
          <input type="date" name="birth-date" id="birth-date">
          <p>The selected Date is <span id="date-value1"></span></p>
-         <p>The converted Date is <span id="date-value"></span></p>
+         <p>The converted Date is <span id="date-value"></span>
+                <button id="copy-button">Copy</p>
         </fieldset>
     </main>
     <footer></footer>
@@ -80,6 +81,21 @@
     font-size: 0.875rem;
     color: #6b7280;
   }
+  #copy-button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#copy-button:hover {
+  background-color: #1d4ed8;
+}
+
 </style>
 
 </body>
