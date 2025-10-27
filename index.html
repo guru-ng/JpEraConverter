@@ -3,19 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="dateconverter.js" defer></script> 
+    <script src="./dateconverter.js" defer></script> 
     <title>Jp Date Converter</title>
 </head>
 <body>
     <header>Wareki Converter</header>
     <main>
+      <form>
         <fieldset>
+              <div>
+              <label for="mode">Conversion Mode:</label>
+              <select id="mode">
+                <option value="jptoeng">Jp → Gregorian</option>
+                <option value="engtojp">Gregorian → Jp</option>
+              </select>
+            </div>
+        </fieldset>
+        <fieldset id="jptoeng">
+          <legend>Jp-Era to Gregorian Date</legend>
+         <input type="radio" id="meiji" name="era" value="明治" checked>
+         <label for="meiji">明治</label></br>
+         <input type="radio" id="taisho" name="era" value="大正">
+         <label for="taisho">大正</label></br>
+         <input type="radio" id="showa" name="era" value="昭和">
+         <label for="showa">昭和</label></br>
+         <input type="radio" id="heisei" name="era" value="平成">
+         <label for="heisei">平成</label></br>
+         <input type="radio" id="reiwa" name="era" value="令和">
+         <label for="reiwa">令和</label></br>
+          <div>
+            <label for="jpYear">Select what year</label>
+            <input type="number" name="jpYear" id="jpYear" min="0" max="100" value="1">
+          </div>
+          <div>
+            <label for="jpMonth">Month:</label>
+            <input type="number" name="jpMonth" id="jpMonth" min="0" max="12" value="1">
+          </div>
+          <div>
+            <label for="jpDay">Day:</label>
+            <input type="number" name="jpDay" id="jpDay" min="0" max="31" value="1">
+          </div>
+          <div>
+           
+            <p>The selected Date is <span id="date-value01"></span></p>
+            <p id="result01">The converted Date is <span id="date-value001"></span>
+              <button id="copy-button01" type="button">Copy</button></p>
+          </div>
+        </fieldset>
+        <fieldset id="engtojp">
          <label for="birth-date">Select Date:</label>
          <input type="date" name="birth-date" id="birth-date">
+
          <p>The selected Date is <span id="date-value1"></span></p>
-         <p>The converted Date is <span id="date-value"></span>
-                <button id="copy-button">Copy</button></p>
+         <p id="result">The converted Date is <span id="date-value"></span>
+          <button id="copy-button" type="button">Copy</button></p>
         </fieldset>
+      </form>
     </main>
     <footer></footer>
     <style>
@@ -81,6 +124,7 @@
     font-size: 0.875rem;
     color: #6b7280;
   }
+  #copy-button01,
   #copy-button {
   padding: 0.3rem 0.6rem;
   font-size: 0.9rem;
@@ -92,7 +136,8 @@
   transition: background-color 0.2s ease;
 }
 
-#copy-button:hover {
+#copy-button:hover 
+#copy-button01:hover {
   background-color: #71747d;
 }
 @keyframes pulse {
@@ -107,7 +152,9 @@
   }
 }
 
-#copy-button.copied {
+
+#copy-button.copied,
+#copy-button01.copied  {
   animation: pulse 0.6s ease;
 }
 
